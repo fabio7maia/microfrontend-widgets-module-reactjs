@@ -21,6 +21,14 @@ jobs:
               run: |
                   yarn
                   yarn run build
+              env:
+                  GENERATE_SOURCEMAP: ${{ secrets.GENERATE_SOURCEMAP }}
+                  PUBLIC_URL: ${{ secrets.PUBLIC_URL }}
+                  REACT_APP_LOGGER_DEBUG: ${{ secrets.REACT_APP_LOGGER_DEBUG }}
+                  REACT_APP_LOGGER_ERROR: ${{ secrets.REACT_APP_LOGGER_ERROR }}
+                  REACT_APP_LOGGER_LOG: ${{ secrets.REACT_APP_LOGGER_LOG }}
+                  REACT_APP_API_KEY_FOOTBALL_MATCHES: ${{ secrets.REACT_APP_API_KEY_FOOTBALL_MATCHES }}
+                  REACT_APP_API_KEY_NEWS: ${{ secrets.REACT_APP_API_KEY_NEWS }}
 
             - name: Deploy 🚀
               uses: JamesIves/github-pages-deploy-action@4.1.5
