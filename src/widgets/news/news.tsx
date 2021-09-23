@@ -18,7 +18,9 @@ const getLatestNews = async () => {
 	return res.json();
 };
 
-export const News: React.FC = (props) => {
+export type NewsProps = {};
+
+export const News: React.FC<NewsProps> = (props) => {
 	const logger = useLogger();
 	const [index, setIndex] = React.useState(0);
 	const [news, setNews] = React.useState<New[]>([]);

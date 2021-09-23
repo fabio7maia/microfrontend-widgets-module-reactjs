@@ -45,7 +45,9 @@ const getTodayMatches = async (live = false) => {
 	return res.json();
 };
 
-export const FootballMatches: React.FC = (props) => {
+export type FootballMatchesProps = {};
+
+export const FootballMatches: React.FC<FootballMatchesProps> = (props) => {
 	const logger = useLogger();
 	const [live, setLive] = React.useState(false);
 	const [matches, setMatches] = React.useState<Match[]>([]);
