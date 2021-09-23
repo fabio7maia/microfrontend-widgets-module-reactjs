@@ -26,7 +26,9 @@ jobs:
                   REACT_APP_LOGGER_DEBUG: ${{ secrets.REACT_APP_LOGGER_DEBUG }}
                   REACT_APP_LOGGER_ERROR: ${{ secrets.REACT_APP_LOGGER_ERROR }}
                   REACT_APP_LOGGER_LOG: ${{ secrets.REACT_APP_LOGGER_LOG }}
+                  REACT_APP_API_URL_FOOTBALL_MATCHES: ${{ secrets.REACT_APP_API_URL_FOOTBALL_MATCHES }}
                   REACT_APP_API_KEY_FOOTBALL_MATCHES: ${{ secrets.REACT_APP_API_KEY_FOOTBALL_MATCHES }}
+                  REACT_APP_API_URL_NEWS: ${{ secrets.REACT_APP_API_URL_NEWS }}
                   REACT_APP_API_KEY_NEWS: ${{ secrets.REACT_APP_API_KEY_NEWS }}
 
             - name: Deploy 🚀

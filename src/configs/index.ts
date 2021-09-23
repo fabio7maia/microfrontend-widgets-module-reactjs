@@ -4,7 +4,13 @@ export const LoggerConfig = {
 	log: process.env.REACT_APP_LOGGER_LOG === 'false' ? false : true,
 };
 
-export const ApiKeysConfig = {
-	footballMatches: process.env.REACT_APP_API_KEY_FOOTBALL_MATCHES || '',
-	news: process.env.REACT_APP_API_KEY_NEWS || '',
+export const ApiConfig = {
+	keys: {
+		footballMatches: process.env.REACT_APP_API_KEY_FOOTBALL_MATCHES || '',
+		news: process.env.REACT_APP_API_KEY_NEWS || '',
+	},
+	urls: {
+		footballMatches: process.env.REACT_APP_API_URL_FOOTBALL_MATCHES || '',
+		news: process.env.REACT_APP_API_URL_NEWS || '',
+	},
 };

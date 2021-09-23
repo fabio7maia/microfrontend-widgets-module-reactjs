@@ -2,7 +2,7 @@ import React from 'react';
 import { useLogger } from '@hooks';
 import { MicroFrontend } from '../../microfrontend';
 import { Placeholder } from '@components';
-import { ApiKeysConfig } from '@configs';
+import { ApiConfig } from '@configs';
 
 interface Team {
 	id: number;
@@ -34,12 +34,12 @@ interface Match {
 
 const getTodayMatches = async (live = false) => {
 	const url = live
-		? 'http://api.football-data.org/v2/matches?status=LIVE'
-		: 'http://api.football-data.org/v2/matches';
+		? `${ApiConfig.urls.footballMatches}matches?status=LIVE`
+		: `${ApiConfig.urls.footballMatches}matches`;
 
 	const res = await fetch(url, {
 		headers: {
-			'X-Auth-Token': ApiKeysConfig.footballMatches,
+			'X-Auth-Token': ApiConfig.keys.footballMatches,
 		},
 	});
 
