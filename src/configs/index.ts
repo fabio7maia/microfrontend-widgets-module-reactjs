@@ -5,6 +5,6 @@ export const LoggerConfig = {
 };
 
 export const ApiKeysConfig = {
-	footballMatches: process.env.REACT_APP_API_KEY_FOOTBALL_MATCHES,
-	news: process.env.REACT_APP_API_KEY_NEWS,
+	footballMatches: process.env.REACT_APP_API_KEY_FOOTBALL_MATCHES || '',
+	news: process.env.REACT_APP_API_KEY_NEWS || '',
 };

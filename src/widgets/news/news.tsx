@@ -2,6 +2,7 @@ import React from 'react';
 import { useLogger } from '@hooks';
 import { MicroFrontend } from '../../microfrontend';
 import { Placeholder } from '@components';
+import { ApiKeysConfig } from '@configs';
 
 export interface New {
 	id: string;
@@ -11,9 +12,7 @@ export interface New {
 }
 
 const getLatestNews = async () => {
-	const res = await fetch(
-		'https://api.currentsapi.services/v1/latest-news?language=pt&apiKey=QN0EPAz38wKForSojURnBoRHsoJO2XbGTbched4aLN4SUPYQ'
-	);
+	const res = await fetch(`https://api.currentsapi.services/v1/latest-news?language=pt&apiKey=${ApiKeysConfig.news}`);
 
 	return res.json();
 };

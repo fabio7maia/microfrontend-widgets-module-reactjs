@@ -2,6 +2,7 @@ import React from 'react';
 import { useLogger } from '@hooks';
 import { MicroFrontend } from '../../microfrontend';
 import { Placeholder } from '@components';
+import { ApiKeysConfig } from '@configs';
 
 interface Team {
 	id: number;
@@ -38,7 +39,7 @@ const getTodayMatches = async (live = false) => {
 
 	const res = await fetch(url, {
 		headers: {
-			'X-Auth-Token': '9b6edc77dd1b4a3c98609b3dc2e3f2e9',
+			'X-Auth-Token': ApiKeysConfig.footballMatches,
 		},
 	});
 
