@@ -101,6 +101,8 @@
 		"jest-sonar-reporter": "^2.0.0",
 		"jest-watch-typeahead": "0.4.0",
 		"lint-staged": "^11.0.0",
+		"postcss": "^8.3.7",
+		"postcss-loader": "^6.1.1",
 		"prettier": "^2.3.1",
 		"react-app-polyfill": "^2.0.0",
 		"react-scripts": "^4.0.3",
