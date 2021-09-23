@@ -44,6 +44,7 @@ module.exports = {
 		'^@store': resolve(__dirname, './src/store'),
 		'^@themes': resolve(__dirname, './src/themes'),
 		'^@types': resolve(__dirname, './src/types'),
+		'^@widgets': resolve(__dirname, './src/widgets'),
 	},
 	moduleFileExtensions: ['web.js', 'js', 'web.ts', 'ts', 'web.tsx', 'tsx', 'json', 'web.jsx', 'jsx', 'node'],
 	watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
