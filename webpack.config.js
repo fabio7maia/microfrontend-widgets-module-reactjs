@@ -8,9 +8,7 @@ const FileManagerPlugin = require('filemanager-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const packageJson = require('./package.json');
 
-const env = 'development';
-process.env.NODE_ENV = process.env.BABEL_ENV = env;
-process.env.PUBLIC_URL = '/';
+const env = process.env.NODE_ENV || 'development';
 
 const transformDependencies = (deps) => {
 	const transformDependencies = {};
