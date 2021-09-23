@@ -129,7 +129,7 @@ module.exports = {
 					archive: [
 						{
 							source: '.webpack-federation-modules-types',
-							destination: './dist/dashboardModule-dts.tgz',
+							destination: './dist/widgetsModule-dts.tgz',
 							format: 'tar', // optional
 							options: {
 								// see https://www.archiverjs.com/docs/archiver
