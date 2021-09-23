@@ -4,4 +4,4 @@ import * as bootstrap from './bootstrap';
 
 (bootstrap as any)(() => {});
 
-export * from './screens';
+export * from './widgets';

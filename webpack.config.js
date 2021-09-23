@@ -12,6 +12,19 @@ const env = 'development';
 process.env.NODE_ENV = process.env.BABEL_ENV = env;
 process.env.PUBLIC_URL = '/';
 
+const transformDependencies = (deps) => {
+	const transformDependencies = {};
+
+	Object.keys(deps).forEach((key) => {
+		transformDependencies[key] = {
+			eager: true,
+			requiredVersion: deps[key],
+		};
+	});
+
+	return transformDependencies;
+};
+
 module.exports = {
 	entry: './src/index',
 	mode: env,
@@ -47,15 +60,20 @@ module.exports = {
 				},
 			},
 			{
+				test: /\.css$/i,
+				use: ['style-loader', 'css-loader'],
+			},
+			{
 				test: /\.tsx?$/,
 				exclude: /node_modules/,
 				use: [
 					{
 						loader: 'dts-loader',
 						options: {
-							name: 'dashboardModule', // The name configured in ModuleFederationPlugin
+							name: 'widgetsModule', // The name configured in ModuleFederationPlugin
 							exposes: {
-								'./dashboard': './src/screens/dashboard/dashboard',
+								'./footballMatches': './src/widgets/footballMatches/footballMatches',
+								'./news': './src/widgets/news/news',
 							},
 							typesOutputDir: '.webpack-federation-modules-types', // Optional, default is '.wp_federation'
 						},
@@ -66,20 +84,15 @@ module.exports = {
 	},
 	plugins: [
 		new ModuleFederationPlugin({
-			name: 'dashboardModule',
+			name: 'widgetsModule',
 			filename: 'remoteEntry.js',
 			remotes: {},
 			exposes: {
-				'./dashboard': './src/screens/dashboard/dashboard',
+				'./footballMatches': './src/widgets/footballMatches/footballMatches',
+				'./news': './src/widgets/news/news',
 			},
 			shared: {
-				...packageJson.dependencies,
-				react: { eager: true, requiredVersion: packageJson.dependencies.react },
-				'react-dom': { eager: true, requiredVersion: packageJson.dependencies['react-dom'] },
-				'react-redux': {
-					eager: true,
-					requiredVersion: packageJson.dependencies['react-redux'],
-				},
+				...transformDependencies(packageJson.dependencies),
 			},
 		}),
 		new HtmlWebpackPlugin({

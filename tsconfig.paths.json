@@ -16,7 +16,8 @@
 			"@services": ["services"],
 			"@store": ["store"],
 			"@themes": ["themes"],
-			"@types": ["types"]
+			"@types": ["types"],
+			"@widgets": ["widgets"]
 		}
 	}
 }

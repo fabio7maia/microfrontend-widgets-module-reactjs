@@ -1,10 +1,15 @@
 import React from 'react';
-import { Dashboard } from '@screens';
+import { FootballMatches, News } from '@widgets';
 
 export const App: React.FC = () => {
 	return (
-		<div>
-			<Dashboard numberOfWidgets={0} />
-		</div>
+		<>
+			<div>
+				<News />
+			</div>
+			<div style={{ margin: '30px 0 0 0' }}>
+				<FootballMatches />
+			</div>
+		</>
 	);
 };
