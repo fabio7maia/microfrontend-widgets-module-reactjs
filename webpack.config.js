@@ -12,6 +12,8 @@ const dotEnv = require('dotenv');
 const env = process.env.NODE_ENV || 'development';
 const envVars = dotEnv.config().parsed;
 
+console.log('envVars', { envVars });
+
 const transformEnvVars = (envVars) => {
 	const transformEnvVars = {};
 
