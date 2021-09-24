@@ -10,7 +10,7 @@ const webpack = require('webpack');
 const dotEnv = require('dotenv');
 
 const env = process.env.NODE_ENV || 'development';
-const envVars = dotEnv.config().parsed;
+const envVars = dotEnv.config().parsed || process.env;
 
 console.log('envVars', { envVars });
 
