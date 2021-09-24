@@ -2,7 +2,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlugin;
 const path = require('path');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
@@ -11,9 +10,7 @@ const webpack = require('webpack');
 const dotEnv = require('dotenv');
 
 const env = process.env.NODE_ENV || 'development';
-const dotEnvFile = dotEnv.config().parsed;
-
-console.log('dotEnvFile', { dotEnvFile });
+dotEnv.config();
 
 const transformDependencies = (deps) => {
 	const transformDependencies = {};
