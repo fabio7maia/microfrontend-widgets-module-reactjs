@@ -10,7 +10,17 @@ const webpack = require('webpack');
 const dotEnv = require('dotenv');
 
 const env = process.env.NODE_ENV || 'development';
-dotEnv.config();
+const envVars = dotEnv.config().parsed;
+
+const transformEnvVars = (envVars) => {
+	const transformEnvVars = {};
+
+	Object.keys(envVars).forEach((key) => {
+		transformEnvVars[key] = JSON.stringify(envVars[key]);
+	});
+
+	return transformEnvVars;
+};
 
 const transformDependencies = (deps) => {
 	const transformDependencies = {};
@@ -161,16 +171,8 @@ module.exports = {
 		new ForkTsCheckerWebpackPlugin(),
 		new webpack.DefinePlugin({
 			'process.env': {
-				// defaults the environment to development if not specified
 				NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
-				GENERATE_SOURCEMAP: JSON.stringify(process.env.GENERATE_SOURCEMAP),
-				REACT_APP_LOGGER_DEBUG: JSON.stringify(process.env.REACT_APP_LOGGER_DEBUG),
-				REACT_APP_LOGGER_ERROR: JSON.stringify(process.env.REACT_APP_LOGGER_ERROR),
-				REACT_APP_LOGGER_LOG: JSON.stringify(process.env.REACT_APP_LOGGER_LOG),
-				REACT_APP_API_URL_FOOTBALL_MATCHES: JSON.stringify(process.env.REACT_APP_API_URL_FOOTBALL_MATCHES),
-				REACT_APP_API_KEY_FOOTBALL_MATCHES: JSON.stringify(process.env.REACT_APP_API_KEY_FOOTBALL_MATCHES),
-				REACT_APP_API_URL_NEWS: JSON.stringify(process.env.REACT_APP_API_URL_NEWS),
-				REACT_APP_API_KEY_NEWS: JSON.stringify(process.env.REACT_APP_API_KEY_NEWS),
+				...transformEnvVars(envVars),
 			},
 		}),
 	],
