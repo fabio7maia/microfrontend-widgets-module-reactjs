@@ -12,8 +12,6 @@ const dotEnv = require('dotenv');
 const env = process.env.NODE_ENV || 'development';
 const envVars = dotEnv.config().parsed || process.env;
 
-console.log('envVars', { envVars });
-
 const transformEnvVars = (envVars) => {
 	const transformEnvVars = {};
 
@@ -36,8 +34,6 @@ const transformDependencies = (deps) => {
 
 	return transformDependencies;
 };
-
-console.log('env', { env: transformEnvVars(envVars) });
 
 module.exports = {
 	entry: './src/index',
