@@ -35,6 +35,8 @@ const transformDependencies = (deps) => {
 	return transformDependencies;
 };
 
+console.log('env', { env: transformEnvVars(envVars) });
+
 module.exports = {
 	entry: './src/index',
 	mode: env,
